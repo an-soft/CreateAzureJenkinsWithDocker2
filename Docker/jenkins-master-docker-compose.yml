@@ -1,0 +1,9 @@
+jenkins_app:
+  image: jenkins/jenkins:lts
+  container_name: jenkins_master
+  restart: always
+  ports:
+   - "80:8080"
+   - "50000:50000"
+  volumes:
+   - /mnt/jenkins_home:/var/jenkins_home

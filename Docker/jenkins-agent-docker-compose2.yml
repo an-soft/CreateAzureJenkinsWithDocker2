@@ -1,0 +1,14 @@
+jenkins_slave:
+  image: jenkins/jenkins:lts
+  container_name: jenkins_agent_windows
+  environment:
+      - JENKINS_MASTER_SERVER=jenkins_master
+      - JENKINS_MASTER_PORT=8080
+      - JENKINS_MASTER_JNLP_PORT=50000
+      - JENKINS_TOKEN=86f28fafeeb1f4500d546f1957df26718a14fbca244605ea5762da9ad2f721e8
+      - SLAVE_NAME=jenkins_agent_windows
+    depends_on:
+      - jenkins_master
+  restart: always
+  volumes:
+     - /mnt/jenkins_agent_windows:/var/jenkins_home
